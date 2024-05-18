@@ -45,18 +45,18 @@
  
 -${BUILD_PLAT}/${FIP_NAME}: ${FIP_DEPS} ${FIPTOOL}
 +${BUILD_PLAT}/${FIP_NAME}: ${FIP_DEPS}
-	$(eval ${CHECK_FIP_CMD})
-	${Q}${FIPTOOL} create ${FIP_ARGS} $@
-	${Q}${FIPTOOL} info $@
+ 	$(eval ${CHECK_FIP_CMD})
+ 	${Q}${FIPTOOL} create ${FIP_ARGS} $@
+ 	${Q}${FIPTOOL} info $@
 @@ -1417,7 +1399,7 @@ fwu_certificates: ${FWU_CRT_DEPS} ${CRTT
  	@${ECHO_BLANK_LINE}
  endif
  
 -${BUILD_PLAT}/${FWU_FIP_NAME}: ${FWU_FIP_DEPS} ${FIPTOOL}
 +${BUILD_PLAT}/${FWU_FIP_NAME}: ${FWU_FIP_DEPS}
-	$(eval ${CHECK_FWU_FIP_CMD})
-	${Q}${FIPTOOL} create ${FWU_FIP_ARGS} $@
-	${Q}${FIPTOOL} info $@
+ 	$(eval ${CHECK_FWU_FIP_CMD})
+ 	${Q}${FIPTOOL} create ${FWU_FIP_ARGS} $@
+ 	${Q}${FIPTOOL} info $@
 @@ -1425,19 +1407,9 @@ ${BUILD_PLAT}/${FWU_FIP_NAME}: ${FWU_FIP
  	@echo "Built $@ successfully"
  	@${ECHO_BLANK_LINE}
@@ -76,7 +76,7 @@
 -
  sptool: ${SPTOOL}
  ${SPTOOL}: FORCE
-	${Q}${MAKE} CPPFLAGS="-DVERSION='\"${VERSION_STRING}\"'" SPTOOL=${SPTOOL} --no-print-directory -C ${SPTOOLPATH}
+ 	${Q}${MAKE} CPPFLAGS="-DVERSION='\"${VERSION_STRING}\"'" SPTOOL=${SPTOOL} --no-print-directory -C ${SPTOOLPATH}
 --- a/tools/fiptool/Makefile
 +++ b/tools/fiptool/Makefile
 @@ -48,7 +48,7 @@ all: ${PROJECT}
@@ -88,8 +88,8 @@
  	@${ECHO_BLANK_LINE}
  	@echo "Built $@ successfully"
  	@${ECHO_BLANK_LINE}
---- a/tools/nxp/plat_fiptool/plat_fiptool.mk	2023-05-20 22:28:28.079945619 +0200
-+++ b/tools/nxp/plat_fiptool/plat_fiptool.mk	2023-05-20 22:26:59.443307771 +0200
+--- a/tools/nxp/plat_fiptool/plat_fiptool.mk
++++ b/tools/nxp/plat_fiptool/plat_fiptool.mk
 @@ -22,11 +22,11 @@ INCLUDE_PATHS += -I${PLAT_DEF_UUID_OID_C
  $(shell rm ${PLAT_DEF_UUID_CONFIG_FILE_PATH}/${PLAT_DEF_UUID_CONFIG_FILE_NAME}.o)
  
