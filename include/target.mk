@@ -23,8 +23,7 @@ DEFAULT_PACKAGES:=\
 	netifd \
 	uci \
 	uclient-fetch \
-	urandom-seed \
-	urngd
+	urandom-seed
 
 ifdef CONFIG_USE_APK
 DEFAULT_PACKAGES+=apk
