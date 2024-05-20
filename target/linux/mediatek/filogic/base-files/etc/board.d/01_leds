@@ -66,6 +66,13 @@ routerich,ax3000)
 	ucidef_set_led_netdev "wan" "wan" "blue:wan" "wan" "link tx rx"
 	ucidef_set_led_netdev "wan-off" "wan-off" "red:wan" "wan" "link"
 	;;
+tplink,re6000xd)
+	ucidef_set_led_netdev "lan-1" "lan-1" "blue:lan-0" "lan1" "link tx rx"
+	ucidef_set_led_netdev "lan-2" "lan-2" "blue:lan-1" "lan2" "link tx rx"
+	ucidef_set_led_netdev "eth1" "lan-3" "blue:lan-2" "eth1" "link tx rx"
+	ucidef_set_led_netdev "wlan2g" "WLAN2G" "blue:wlan-2ghz" "phy0-ap0"
+	ucidef_set_led_netdev "wlan5g" "WLAN5G" "blue:wlan-5ghz" "phy1-ap0"
+	;;
 xiaomi,mi-router-wr30u-stock|\
 xiaomi,mi-router-wr30u-ubootmod)
 	ucidef_set_led_netdev "wan" "wan" "blue:wan" "wan" "link tx rx"
