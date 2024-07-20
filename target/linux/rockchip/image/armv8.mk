@@ -25,6 +25,19 @@ define Device/friendlyarm_nanopi-m4v2
 endef
 TARGET_DEVICES += friendlyarm_nanopi-m4v2
 
+define Device/friendlyarm_nanopi-m4-2gb
+  DEVICE_VENDOR := FriendlyARM
+  DEVICE_MODEL := NanoPi M4 2GB
+  DEVICE_VARIANT := DDR3
+  SUPPORTED_DEVICES := friendlyarm,nanopi-m4
+  DEVICE_DTS := rockchip/rk3399-nanopi-m4
+  SOC := rk3399
+  DEVICE_PACKAGES := \
+		cypress-firmware-4356-sdio brcmfmac-nvram-4356-sdio \
+		kmod-brcmfmac wpad-basic-mbedtls
+endef
+TARGET_DEVICES += friendlyarm_nanopi-m4-2gb
+
 define Device/friendlyarm_nanopc-t4
   DEVICE_VENDOR := FriendlyARM
   DEVICE_MODEL := NanoPC T4
