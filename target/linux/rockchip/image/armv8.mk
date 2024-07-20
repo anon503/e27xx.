@@ -14,6 +14,17 @@ define Device/firefly_roc-rk3328-cc
 endef
 TARGET_DEVICES += firefly_roc-rk3328-cc
 
+define Device/friendlyarm_nanopi-m4v2
+  DEVICE_VENDOR := FriendlyARM
+  DEVICE_MODEL := NanoPi M4v2
+  SUPPORTED_DEVICES := friendlyarm,nanopi-m4
+  SOC := rk3399
+  DEVICE_PACKAGES := \
+		cypress-firmware-4356-sdio brcmfmac-nvram-4356-sdio \
+		kmod-brcmfmac wpad-basic-mbedtls
+endef
+TARGET_DEVICES += friendlyarm_nanopi-m4v2
+
 define Device/friendlyarm_nanopc-t4
   DEVICE_VENDOR := FriendlyARM
   DEVICE_MODEL := NanoPC T4

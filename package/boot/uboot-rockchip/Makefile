@@ -96,6 +96,15 @@ define U-Boot/rk3399/Default
   ATF:=rk3399_bl31.elf
 endef
 
+define U-Boot/nanopi-m4v2-rk3399
+  $(U-Boot/rk3399/Default)
+  NAME:=NanoPi m4v2
+  BUILD_DEVICES:= \
+    friendlyarm_nanopi-m4v2
+  UBOOT_DTS:=rk3399-nanopi-m4.dts
+  UBOOT_CONFIG:=roc-pc-rk3399
+endef
+
 define U-Boot/nanopc-t4-rk3399
   $(U-Boot/rk3399/Default)
   NAME:=NanoPC T4
@@ -182,6 +191,7 @@ define U-Boot/radxa-e25-rk3568
 endef
 
 UBOOT_TARGETS := \
+  nanopi-m4v2-rk3399 \
   nanopc-t4-rk3399 \
   nanopi-r4s-rk3399 \
   rock-pi-4-rk3399 \
