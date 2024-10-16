@@ -160,6 +160,13 @@ define U-Boot/rk3566/Default
   TPL:=rk3566_ddr_1056MHz_v1.21.bin
 endef
 
+define U-Boot/quartz64-a-rk3566
+  $(U-Boot/rk3566/Default)
+  NAME:=QUARTZ64 A
+  BUILD_DEVICES:= \
+    pine64_quartz64-a
+endef
+
 define U-Boot/radxa-cm3-io-rk3566
   $(U-Boot/rk3566/Default)
   NAME:=CM3 IO
@@ -305,6 +312,7 @@ UBOOT_TARGETS := \
   rock64-rk3328 \
   rock-pi-e-rk3328 \
   rock-pi-e-v3-rk3328 \
+  quartz64-a-rk3566 \
   radxa-cm3-io-rk3566 \
   radxa-zero-3-rk3566 \
   rock-3c-rk3566 \

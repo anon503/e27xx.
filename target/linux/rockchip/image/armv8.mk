@@ -116,6 +116,14 @@ define Device/friendlyarm_nanopi-r6s
 endef
 TARGET_DEVICES += friendlyarm_nanopi-r6s
 
+define Device/pine64_quartz64-a
+  DEVICE_VENDOR := Pine64
+  DEVICE_MODEL := Quartz64 Model A
+  SOC := rk3566
+  DEVICE_PACKAGES := kmod-ata-ahci-dwc kmod-r8169 kmod-usb-net-rtl8152
+endef
+TARGET_DEVICES += pine64_quartz64-a
+
 define Device/pine64_rock64
   DEVICE_VENDOR := Pine64
   DEVICE_MODEL := Rock64
