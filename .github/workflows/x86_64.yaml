@@ -70,9 +70,6 @@ jobs:
                 mkdir -p files/www/repo
                 wget https://gist.githubusercontent.com/mj22226/b6508af532acdddf1d8e2ed94310b38c/raw/f146f601a9b61f8a12427cc4e47b6627867b0f35/x86.patch
                 git apply x86.patch
-                make -j$(nproc) 'IGNORE_ERRORS=n m'
-                cp -R bin/targets/x86/64/packages files/www/repo/
-                rm -rf bin/targets/rockchip/armv8/*.gz
                 make -j$(nproc) 'IGNORE_ERRORS=n m' || true
                 tar -czvf bin/targets/x86/64/logs.tar.gz logs
                 rm -rf bin/targets/x86/64/packages
