@@ -24,7 +24,6 @@ jobs:
                 remove-docker-images: 'true'
             - name: Checkout
               uses: actions/checkout@v4
-
             - name: Build
               run: |
                 ./scripts/feeds update -a
