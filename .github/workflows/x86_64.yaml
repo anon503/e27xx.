@@ -1,10 +1,10 @@
-name: Build x86_64 v6.6 on arm64
+name: Build x86_64 v6.6
 on: [push]
 
 jobs:
     build:
         name: Build x86 linux v6.6 images
-        runs-on: ubuntu-24.04-arm
+        runs-on: ubuntu-latest
 
         steps:
             - name: Setup Ubuntu
@@ -40,8 +40,8 @@ jobs:
                 sed -i "13s/'1'/'0'/" feeds/packages/utils/dockerd/files/etc/config/dockerd
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a -f
-                wget https://github.com/mj22226/openwrt-arm64/releases/download/x86_64-18.1.7/llvm-bpf-18.1.7.Linux-aarch64.tar.zst
-                tar -xvf llvm-bpf-18.1.7.Linux-aarch64.tar.zst
+                wget https://downloads.openwrt.org/snapshots/targets/x86/64/llvm-bpf-18.1.7.Linux-x86_64.tar.zst
+                tar -xvf llvm-bpf-18.1.7.Linux-x86_64.tar.zst
                 cp .github/workflows/x86_64-config .config
                 echo 'CONFIG_GOLANG_EXTERNAL_BOOTSTRAP_ROOT="/opt/hostedtoolcache/go/1.23.5/arm64/bin"' >> .config
                 make defconfig
@@ -54,11 +54,12 @@ jobs:
                 mkdir -p files/www/repo
                 wget https://gist.githubusercontent.com/mj22226/b6508af532acdddf1d8e2ed94310b38c/raw/f146f601a9b61f8a12427cc4e47b6627867b0f35/x86.patch
                 git apply x86.patch
-                make -j$(nproc) 'IGNORE_ERRORS=n m'
-                cp -R bin/targets/x86/64/packages files/www/repo/
-                rm -rf bin/targets/rockchip/armv8/*.gz
-                make -j$(nproc) 'IGNORE_ERRORS=n m'
-                rm -rf bin/targets/x86/64/packages
+                make -j$(nproc) 'IGNORE_ERRORS=n m' || true
+                cp -R bin/targets/x86/64/packages files/www/repo/ || true
+                rm -rf bin/targets/x86/64*.gz || true
+                tar -czvf bin/targets/x86/64/logs.tar.gz logs
+                make -j$(nproc) 'IGNORE_ERRORS=n m' || true
+                rm -rf bin/targets/x86/64/packages || true
                 echo "DATE=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
                 echo "HASH=$(git log -1 --format="%H")" >> $GITHUB_ENV
             - name: Delete tag
