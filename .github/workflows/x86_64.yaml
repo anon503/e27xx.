@@ -7,6 +7,8 @@ jobs:
         runs-on: ubuntu-22.04
 
         steps:
+            - name: Checkout
+              uses: actions/checkout@v4
             - name: Build
               run: |
                 ./scripts/feeds update -a
