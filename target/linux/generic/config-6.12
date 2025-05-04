@@ -1648,6 +1648,7 @@ CONFIG_DQL=y
 # CONFIG_DRM_VIRTIO_GPU is not set
 # CONFIG_DRM_VKMS is not set
 # CONFIG_DRM_VMWGFX is not set
+# CONFIG_DRM_WERROR is not set
 # CONFIG_DRM_XE is not set
 # CONFIG_DRM_XEN is not set
 # CONFIG_DRM_XEN_FRONTEND is not set
