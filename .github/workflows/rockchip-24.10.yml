@@ -70,6 +70,6 @@ jobs:
                 replacesArtifacts: true
                 makeLatest: true
                 token: "${{ secrets.GITHUB_TOKEN }}"
-                artifacts: openwrt/bin/targets/rockchip/armv8/*
+                artifacts: bin/targets/rockchip/armv8/*
 
 
